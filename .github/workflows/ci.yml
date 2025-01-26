@@ -40,6 +40,9 @@ jobs:
     - name: Checkout code into Go module directory
       uses: actions/checkout@v4
 
+    - name: Install Golang-migrate
+      run: curl -L https://github.com/golang-migrate/migrate/releases/download/$version/migrate.$os-$arch.tar.gz | tar xvz
+
     - name: Create DB and migrateup
       run: make migrateup
 
